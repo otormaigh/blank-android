@@ -81,7 +81,7 @@ workflows:
             branches:
               only:
                 - master
-                - /dependabot*/
+                - /dependabot\/.*/
       - assemble:
           requires:
             - quality
@@ -89,3 +89,4 @@ workflows:
             branches:
               only:
                 - master
+                - /dependabot\/.*/
