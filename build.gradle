@@ -1,30 +1,29 @@
 buildscript {
-    apply from: 'dependencies.gradle'
+  apply from: 'dependencies.gradle'
 
-    repositories {
-        google()
-        jcenter()
-        
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.0-alpha10'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
-    }
+  repositories {
+    google()
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:3.6.0-alpha10'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+  }
 }
 
 allprojects {
-    repositories {
-        google()
-        jcenter()
-        
-    }
+  repositories {
+    google()
+    jcenter()
+  }
 }
 
 task clean(type: Delete) {
-    delete rootProject.buildDir
+  delete rootProject.buildDir
 }
 
 wrapper {
-    gradleVersion = "5.6.2"
-    distributionType = "all"
+  gradleVersion = "5.6.2"
+  distributionType = "all"
 }
