@@ -3,20 +3,19 @@ ext {
   gradlePlugins = [:]
 }
 
-def versions = [:]
-
-versions.kotlin = '1.3.50'
-versions.okhttp3 = '4.1.0'
-versions.room = '2.2.0-rc01'
+def versions = [
+    kotlin  : '1.3.50',
+    okhttp3 : '4.1.0',
+    room    : '2.2.0-rc01',
+    livedata: '2.2.0-alpha02'
+]
 
 libraries.kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
 libraries.okhttp3 = "com.squareup.okhttp3:okhttp:${versions.okhttp3}"
 
 libraries.androidx = [:]
-
-def livedata = '2.2.0-alpha02'
 libraries.androidx.livedata = [
-    ktx: "androidx.lifecycle:lifecycle-livedata-ktx:$livedata"
+    ktx: "androidx.lifecycle:lifecycle-livedata-ktx:${versions.livedata}"
 ]
 libraries.androidx.room = [
     ktx: "androidx.room:room-ktx:2.2.0-rc01"
