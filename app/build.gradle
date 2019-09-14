@@ -24,8 +24,24 @@ android {
     jvmTarget = JavaVersion.VERSION_1_8
   }
 
-  buildTypes {
+  signingConfigs {
+    debug {
+      storeFile file('../signing/debug.keystore')
+    }
     release {
+      storeFile file('../signing/release.keystore')
+      storePassword "otormaigh"
+      keyAlias "otormaigh"
+      keyPassword "otormaigh"
+    }
+  }
+
+  buildTypes {
+    debug {
+      signingConfig signingConfigs.debug
+    }
+    release {
+      signingConfig signingConfigs.release
       postprocessing {
         proguardFiles 'proguard-rules.pro'
         removeUnusedResources = true
