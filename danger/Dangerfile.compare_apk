@@ -1,4 +1,4 @@
-corequire 'pry'
+require 'pry'
 
 # APK Stats
 apkstats.apk_filepath='release.apk'
