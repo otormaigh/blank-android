@@ -31,6 +31,8 @@ config: &config
   parallelism: 2
   environment:
     TERM: dumb
+    BUNDLE_PATH: "danger/vendor/bundle"
+    BUNDLE_GEMFILE: "danger/Gemfile"
 
 jobs:
   checkout_code:
