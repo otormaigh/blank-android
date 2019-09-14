@@ -60,7 +60,7 @@ jobs:
       - attach_restore_workspace
       - run:
           name: Assemble
-          command: ./gradlew assemble
+          command: ./gradlew assembleRelease
       - store_artifacts:
           path: app/build/outputs
       - save_cache: *save_gradle_cache
