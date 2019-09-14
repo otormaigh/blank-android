@@ -8,6 +8,9 @@ aliases:
     paths:
       - ~/.gradle/caches
       - ~/.gradle/wrapper
+  - &install_bundle
+    name: Install bundle dependencies
+    command: bundle check || bundle install
 
 attach_workspace: &attach_workspace
   attach_workspace:
@@ -69,24 +72,46 @@ jobs:
           paths:
             - build/outputs/
 
+  danger_assert:
+    <<: *config
+    steps:
+      - attach_restore_workspace
+      - run: *install_bundle
+      - run:
+          name: Danger assertions
+          command: bundle exec danger --dangerfile="danger/Dangerfile.assert" --danger_id='assertions' --remove-previous-comments
+
+  danger_apk_stat:
+    <<: *config
+    steps:
+      - attach_restore_workspace
+      - run: *install_bundle
+      - run:
+          name: Fetch last release APK
+          command: script/download_latest_apk latest-release.apk
+      - run:
+          name: Fetch current release APK
+          command: cp app/build/outputs/apk/release/*.apk release.apk
+      - run:
+          name: Danger APK stats
+          command: bundle exec danger --dangerfile="danger/Dangerfile.compare_apk" --danger_id='compare-apk' --remove-previous-comments
+
 workflows:
   version: 2
   commit:
     jobs:
-      - checkout_code
+      - checkout_code:
+          filters:
+            branches:
+              only:
+                - master
+                - /dependabot\/.*/
       - quality:
           requires:
             - checkout_code
-          filters:
-            branches:
-              only:
-                - master
-                - /dependabot\/.*/
       - assemble:
           requires:
             - quality
-          filters:
-            branches:
-              only:
-                - master
-                - /dependabot\/.*/
+      - danger_apk_stat:
+          requires:
+            - assemble
