@@ -1,16 +1,15 @@
 package ie.otormaigh.blank
 
-import android.app.Activity
 import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import dagger.android.HasAndroidInjector
 import ie.otormaigh.blank.di.DaggerAppComponent
 import javax.inject.Inject
 
-class BlankApplication : Application(), HasActivityInjector {
+class BlankApplication : Application(), HasAndroidInjector {
   @Inject
-  lateinit var activityInjector: DispatchingAndroidInjector<Activity>
+  lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
   override fun onCreate() {
     super.onCreate()
@@ -20,5 +19,5 @@ class BlankApplication : Application(), HasActivityInjector {
       .build()
   }
 
-  override fun activityInjector(): AndroidInjector<Activity> = activityInjector
+  override fun androidInjector(): AndroidInjector<Any> = androidInjector
 }
