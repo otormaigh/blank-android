@@ -107,6 +107,7 @@ workflows:
             branches:
               only:
                 - master
+                - develop
                 - /dependabot\/.*/
       - quality:
           requires:
