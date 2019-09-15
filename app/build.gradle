@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
   compileSdkVersion 29
@@ -70,6 +71,12 @@ dependencies {
   implementation 'com.squareup.retrofit2:retrofit:2.6.1'
   implementation libraries.okhttp3
   implementation 'com.squareup.moshi:moshi:1.8.0'
+
+  implementation libraries.dagger.core
+  implementation libraries.dagger.android
+  implementation libraries.dagger.android_support
+  kapt libraries.dagger.compiler
+  kapt libraries.dagger.android_processor
 
   testImplementation 'junit:junit:4.12'
   androidTestImplementation 'androidx.test.ext:junit:1.1.2-alpha02'
