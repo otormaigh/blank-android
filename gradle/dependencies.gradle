@@ -8,7 +8,7 @@ def versions = [
     okhttp3 : '4.2.0',
     room    : '2.2.0-rc01',
     livedata: '2.2.0-alpha04',
-    dagger  : '2.17',
+    dagger  : '2.24',
     retrofit: '2.6.1'
 ]
 
