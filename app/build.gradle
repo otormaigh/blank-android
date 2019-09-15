@@ -68,8 +68,10 @@ dependencies {
   implementation libraries.androidx.livedata.ktx
   implementation 'androidx.viewpager2:viewpager2:1.0.0-beta04'
 
-  implementation 'com.squareup.retrofit2:retrofit:2.6.1'
-  implementation libraries.okhttp3
+  implementation libraries.retrofit.core
+  implementation libraries.retrofit.moshi
+  implementation libraries.okhttp.core
+  implementation libraries.okhttp.logging_interceptor
   implementation 'com.squareup.moshi:moshi:1.8.0'
 
   implementation libraries.dagger.core
