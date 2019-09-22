@@ -11,7 +11,7 @@ android {
     applicationId "ie.otormaigh.blank"
     minSdkVersion 23
     targetSdkVersion 29
-    versionCode 4
+    versionCode 5
     versionName "1.$versionCode"
     archivesBaseName = "blank-$versionName"
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -57,31 +57,56 @@ android {
   viewBinding.enabled = true
 }
 
+kapt {
+  javacOptions {
+    option("-source", "8")
+    option("-target", "8")
+  }
+}
+
 dependencies {
-  implementation libraries.kotlin
-  implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.1'
+  implementation libraries.jetbrains.kotlin.stdlib
+  implementation libraries.jetbrains.coroutines.core
+  implementation libraries.jetbrains.coroutines.android
 
-  implementation 'androidx.appcompat:appcompat:1.1.0'
-  implementation 'androidx.core:core-ktx:1.2.0-alpha04'
-  implementation 'com.google.android.material:material:1.1.0-alpha10'
-  implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
+  implementation libraries.androidx.appcompat
+  implementation libraries.androidx.core_ktx
+  implementation libraries.androidx.constraintlayout
+  implementation libraries.androidx.lifecycle.livedata.ktx
+  implementation libraries.androidx.lifecycle.livedata.core_ktx
+  implementation libraries.androidx.lifecycle.viewmodel.ktx
+  implementation libraries.androidx.paging.common
+  implementation libraries.androidx.paging.common_ktx
+  implementation libraries.androidx.paging.runtime
+  implementation libraries.androidx.paging.runtime_ktx
+  implementation libraries.androidx.recyclerview
   implementation libraries.androidx.room.ktx
-  implementation libraries.androidx.livedata.ktx
-  implementation 'androidx.viewpager2:viewpager2:1.0.0-beta04'
+  implementation libraries.androidx.viewpager2
+  kapt libraries.androidx.room.runtime
+  implementation libraries.google.material
 
-  implementation libraries.retrofit.core
-  implementation libraries.retrofit.moshi
-  implementation libraries.okhttp.core
-  implementation libraries.okhttp.logging_interceptor
-  implementation 'com.squareup.moshi:moshi:1.8.0'
+  implementation libraries.google.dagger.core
+  implementation libraries.google.dagger.android
+  implementation libraries.google.dagger.android_support
+  kapt libraries.google.dagger.compiler
+  kapt libraries.google.dagger.android_processor
 
-  implementation libraries.dagger.core
-  implementation libraries.dagger.android
-  implementation libraries.dagger.android_support
-  kapt libraries.dagger.compiler
-  kapt libraries.dagger.android_processor
+  implementation libraries.google.crashlytics
+  implementation libraries.google.firebase.analytics
+  implementation libraries.google.firebase.core
+  implementation libraries.google.firebase.messaging
+  implementation libraries.google.firebase.perf
 
-  testImplementation 'junit:junit:4.12'
-  androidTestImplementation 'androidx.test.ext:junit:1.1.2-alpha02'
-  androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha02'
+  implementation libraries.square.retrofit.core
+  implementation libraries.square.retrofit.moshi
+  implementation libraries.square.moshi
+  implementation libraries.square.picasso
+  implementation libraries.square.okhttp.core
+  implementation libraries.square.okhttp.logging_interceptor
+
+  implementation libraries.coil
+
+  testImplementation libraries.junit
+  androidTestImplementation libraries.androidx.test.junit
+  androidTestImplementation libraries.androidx.test.espresso
 }
