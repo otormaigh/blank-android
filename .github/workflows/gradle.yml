@@ -3,8 +3,7 @@ name: Build
 on:
   push:
     branches:
-      - github-action
-      - develop
+      - master
 
 jobs:
   build:
@@ -21,7 +20,13 @@ jobs:
         run: ./gradlew clean assembleRelease
 
       - name: Archive release APK
-        uses: actions/upload-artifact@master
+        run: cp app/build/outputs/apk/release/*.apk release.apk
+
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
         with:
-          name: blank-release
-          path: app/build/outputs/apk/release
+          args: appdistribution:distribute release.apk  \
+            --app ${{ secrets.FIREBASE_APP_ID }}  \
+            --release-notes "Bug fixes and improvements"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
