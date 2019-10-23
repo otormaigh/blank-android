@@ -5,7 +5,7 @@ def versions = [
   room      : '2.2.0-rc01',
   lifecycle : '2.2.0-alpha05',
   paging    : '2.1.0',
-  dagger    : '2.24',
+  dagger    : '2.25',
   retrofit  : '2.6.2'
 ]
 
