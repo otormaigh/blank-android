@@ -54,6 +54,10 @@ android {
     }
   }
 
+  buildFeatures {
+    compose true
+  }
+
   viewBinding.enabled = true
 }
 
@@ -81,8 +85,12 @@ dependencies {
   implementation libraries.androidx.paging.runtime_ktx
   implementation libraries.androidx.recyclerview
   implementation libraries.androidx.room.ktx
-  implementation libraries.androidx.viewpager2
   kapt libraries.androidx.room.runtime
+  implementation libraries.androidx.viewpager2
+  implementation libraries.androidx.ui.tooling
+  implementation libraries.androidx.ui.layout
+  implementation libraries.androidx.ui.material
+
   implementation libraries.google.material
 
   implementation libraries.google.dagger.core
