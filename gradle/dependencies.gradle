@@ -42,7 +42,7 @@ ext {
         junit   : 'androidx.test.ext:junit:1.1.2-alpha02',
         espresso: 'androidx.test.espresso:espresso-core:3.3.0-alpha02'
       ],
-      viewpager2      : 'androidx.viewpager2:viewpager2:1.0.0-beta04'
+      viewpager2      : 'androidx.viewpager2:viewpager2:1.0.0-rc01'
     ],
     coil     : 'io.coil-kt:coil:0.8.0',
     google   : [
