@@ -102,13 +102,7 @@ workflows:
   version: 2
   commit:
     jobs:
-      - checkout_code:
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-                - /dependabot\/.*/
+      - checkout_code
       - quality:
           requires:
             - checkout_code
