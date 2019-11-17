@@ -42,7 +42,7 @@ jobs:
       - restore_cache: *restore_gradle_cache
       - run:
           name: Install dependencies
-          command: ./gradlew dependencies
+          command: ./gradlew dependencies --stacktrace
       - save_cache: *save_gradle_cache
 
   quality:
@@ -52,7 +52,7 @@ jobs:
       - restore_cache: *restore_gradle_cache
       - run:
           name: Quality checks
-          command: ./gradlew lint
+          command: ./gradlew lint --stacktrace
       - save_cache: *save_gradle_cache
       - persist_to_workspace:
           root: app
@@ -65,7 +65,7 @@ jobs:
       - attach_restore_workspace
       - run:
           name: Assemble
-          command: ./gradlew assembleRelease
+          command: ./gradlew assembleRelease --stacktrace
       - store_artifacts:
           path: app/build/outputs
       - save_cache: *save_gradle_cache
