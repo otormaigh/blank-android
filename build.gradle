@@ -28,6 +28,6 @@ task clean(type: Delete) {
 }
 
 wrapper {
-  gradleVersion = "6.1-milestone-2"
+  gradleVersion = "6.1"
   distributionType = "all"
 }
