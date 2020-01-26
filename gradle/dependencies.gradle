@@ -1,23 +1,23 @@
 def versions = [
-  kotlin    : '1.3.61',
-  coroutines: '1.3.2-1.3.60',
-  okhttp3   : '4.2.2',
-  room      : '2.2.2',
-  lifecycle : '2.2.0-rc03',
-  paging    : '2.1.0',
-  dagger    : '2.25.2',
-  retrofit  : '2.7.0'
+  kotlin    : '1.3.70-eap-42',
+  coroutines: '1.3.3-1.3.70-eap-42',
+  okhttp3   : '4.3.1',
+  room      : '2.2.3',
+  lifecycle : '2.2.0',
+  paging    : '2.1.1',
+  dagger    : '2.25.4',
+  retrofit  : '2.7.1'
 ]
 
 ext {
   libraries = [
     android  : [
-      plugin: 'com.android.tools.build:gradle:4.0.0-alpha06'
+      plugin: 'com.android.tools.build:gradle:4.0.0-alpha09'
     ],
     androidx : [
-      appcompat       : 'androidx.appcompat:appcompat:1.1.0',
+      appcompat       : 'androidx.appcompat:appcompat:1.2.0-alpha01',
       core_ktx        : 'androidx.core:core-ktx:1.2.0-rc01',
-      constraintlayout: 'androidx.constraintlayout:constraintlayout:2.0.0-beta3',
+      constraintlayout: 'androidx.constraintlayout:constraintlayout:2.0.0-beta4',
       lifecycle       : [
         livedata : [
           'core_ktx': "androidx.lifecycle:lifecycle-livedata-core-ktx:${versions.lifecycle}",
@@ -33,7 +33,7 @@ ext {
         runtime    : "androidx.paging:paging-runtime:${versions.paging}",
         runtime_ktx: "androidx.paging:paging-runtime-ktx:${versions.paging}",
       ],
-      recyclerview    : 'androidx.recyclerview:recyclerview:1.1.0',
+      recyclerview    : 'androidx.recyclerview:recyclerview:1.2.0-alpha01',
       room            : [
         ktx    : "androidx.room:room-ktx:${versions.room}",
         runtime: "androidx.room:room-runtime:${versions.room}"
@@ -44,7 +44,7 @@ ext {
       ],
       viewpager2      : 'androidx.viewpager2:viewpager2:1.0.0'
     ],
-    coil     : 'io.coil-kt:coil:0.8.0',
+    coil     : 'io.coil-kt:coil:0.9.2',
     google   : [
       dagger     : [
         core             : "com.google.dagger:dagger:${versions.dagger}",
@@ -55,12 +55,12 @@ ext {
       ],
       crashlytics: 'com.crashlytics.sdk.android:crashlytics:2.10.1',
       firebase   : [
-        analytics: 'com.google.firebase:firebase-analytics:17.2.1',
-        core     : 'com.google.firebase:firebase-core:17.2.1',
+        analytics: 'com.google.firebase:firebase-analytics:17.2.2',
+        core     : 'com.google.firebase:firebase-core:17.2.2',
         messaging: 'com.google.firebase:firebase-messaging:20.1.0',
-        perf     : 'com.google.firebase:firebase-perf:19.0.3',
+        perf     : 'com.google.firebase:firebase-perf:19.0.5',
       ],
-      material   : 'com.google.android.material:material:1.2.0-alpha02'
+      material   : 'com.google.android.material:material:1.2.0-alpha04'
     ],
     jetbrains: [
       coroutines: [
@@ -72,7 +72,7 @@ ext {
         stdlib: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
       ]
     ],
-    junit    : 'junit:junit:4.13-rc-2',
+    junit    : 'junit:junit:4.13',
     square   : [
       moshi   : 'com.squareup.moshi:moshi:1.9.2',
       okhttp  : [
