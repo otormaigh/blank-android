@@ -1,6 +1,6 @@
 def versions = [
-  kotlin    : '1.3.61',
-  coroutines: '1.3.3-native-mt',
+  kotlin    : '1.3.70-eap-42',
+  coroutines: '1.3.3-1.3.70-eap-42',
   okhttp3   : '4.3.1',
   room      : '2.2.3',
   lifecycle : '2.2.0',
@@ -15,7 +15,7 @@ ext {
       plugin: 'com.android.tools.build:gradle:4.0.0-alpha09'
     ],
     androidx : [
-      appcompat       : 'androidx.appcompat:appcompat:1.1.0',
+      appcompat       : 'androidx.appcompat:appcompat:1.2.0-alpha01',
       core_ktx        : 'androidx.core:core-ktx:1.2.0-rc01',
       constraintlayout: 'androidx.constraintlayout:constraintlayout:2.0.0-beta4',
       lifecycle       : [
@@ -33,7 +33,7 @@ ext {
         runtime    : "androidx.paging:paging-runtime:${versions.paging}",
         runtime_ktx: "androidx.paging:paging-runtime-ktx:${versions.paging}",
       ],
-      recyclerview    : 'androidx.recyclerview:recyclerview:1.1.0',
+      recyclerview    : 'androidx.recyclerview:recyclerview:1.2.0-alpha01',
       room            : [
         ktx    : "androidx.room:room-ktx:${versions.room}",
         runtime: "androidx.room:room-runtime:${versions.room}"
