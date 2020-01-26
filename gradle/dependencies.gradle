@@ -1,18 +1,19 @@
 def versions = [
   kotlin    : '1.3.61',
-  coroutines: '1.3.2-1.3.60',
-  okhttp3   : '4.2.2',
-  room      : '2.2.2',
+  coroutines: '1.3.3-native-mt',
+  okhttp3   : '4.3.0',
+  room      : '2.2.3',
   lifecycle : '2.2.0-rc03',
-  paging    : '2.1.0',
-  dagger    : '2.25.2',
-  retrofit  : '2.7.0'
+  paging    : '2.1.1',
+  dagger    : '2.25.4',
+  retrofit  : '2.7.0',
+  compose   : '0.1.0-dev03'
 ]
 
 ext {
   libraries = [
     android  : [
-      plugin: 'com.android.tools.build:gradle:4.0.0-alpha06'
+      plugin: 'com.android.tools.build:gradle:4.0.0-alpha07'
     ],
     androidx : [
       appcompat       : 'androidx.appcompat:appcompat:1.1.0',
@@ -42,9 +43,14 @@ ext {
         junit   : 'androidx.test.ext:junit:1.1.2-alpha03',
         espresso: 'androidx.test.espresso:espresso-core:3.3.0-alpha03'
       ],
+      ui              : [
+        tooling : "androidx.ui:ui-tooling:${versions.compose}",
+        layout  : "androidx.ui:ui-layout:${versions.compose}",
+        material: "androidx.ui:ui-material:${versions.compose}"
+      ],
       viewpager2      : 'androidx.viewpager2:viewpager2:1.0.0'
     ],
-    coil     : 'io.coil-kt:coil:0.8.0',
+    coil     : 'io.coil-kt:coil:0.9.1',
     google   : [
       dagger     : [
         core             : "com.google.dagger:dagger:${versions.dagger}",
@@ -58,9 +64,9 @@ ext {
         analytics: 'com.google.firebase:firebase-analytics:17.2.1',
         core     : 'com.google.firebase:firebase-core:17.2.1',
         messaging: 'com.google.firebase:firebase-messaging:20.1.0',
-        perf     : 'com.google.firebase:firebase-perf:19.0.3',
+        perf     : 'com.google.firebase:firebase-perf:19.0.4',
       ],
-      material   : 'com.google.android.material:material:1.2.0-alpha02'
+      material   : 'com.google.android.material:material:1.2.0-alpha03'
     ],
     jetbrains: [
       coroutines: [
