@@ -1,19 +1,19 @@
 def versions = [
   kotlin    : '1.3.61',
-  coroutines: '1.3.2-1.3.60',
+  coroutines: '1.3.3-native-mt',
   okhttp3   : '4.3.0',
-  room      : '2.2.2',
+  room      : '2.2.3',
   lifecycle : '2.2.0-rc03',
-  paging    : '2.1.0',
-  dagger    : '2.25.2',
+  paging    : '2.1.1',
+  dagger    : '2.25.4',
   retrofit  : '2.7.0',
-  compose   : '0.1.0-dev02'
+  compose   : '0.1.0-dev03'
 ]
 
 ext {
   libraries = [
     android  : [
-      plugin: 'com.android.tools.build:gradle:4.0.0-alpha06'
+      plugin: 'com.android.tools.build:gradle:4.0.0-alpha07'
     ],
     androidx : [
       appcompat       : 'androidx.appcompat:appcompat:1.1.0',
@@ -64,9 +64,9 @@ ext {
         analytics: 'com.google.firebase:firebase-analytics:17.2.1',
         core     : 'com.google.firebase:firebase-core:17.2.1',
         messaging: 'com.google.firebase:firebase-messaging:20.1.0',
-        perf     : 'com.google.firebase:firebase-perf:19.0.3',
+        perf     : 'com.google.firebase:firebase-perf:19.0.4',
       ],
-      material   : 'com.google.android.material:material:1.2.0-alpha02'
+      material   : 'com.google.android.material:material:1.2.0-alpha03'
     ],
     jetbrains: [
       coroutines: [
