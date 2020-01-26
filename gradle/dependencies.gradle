@@ -72,7 +72,7 @@ ext {
         stdlib: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
       ]
     ],
-    junit    : 'junit:junit:4.13-rc-2',
+    junit    : 'junit:junit:4.13',
     square   : [
       moshi   : 'com.squareup.moshi:moshi:1.9.2',
       okhttp  : [
