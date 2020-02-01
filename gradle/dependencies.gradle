@@ -7,7 +7,7 @@ def versions = [
   paging    : '2.1.1',
   dagger    : '2.25.4',
   retrofit  : '2.7.0',
-  compose   : '0.1.0-dev03'
+  compose   : '0.1.0-dev04'
 ]
 
 ext {
