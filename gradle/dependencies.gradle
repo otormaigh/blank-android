@@ -58,7 +58,7 @@ ext {
         analytics: 'com.google.firebase:firebase-analytics:17.3.0',
         core     : 'com.google.firebase:firebase-core:17.2.3',
         messaging: 'com.google.firebase:firebase-messaging:20.1.5',
-        perf     : 'com.google.firebase:firebase-perf:19.0.5',
+        perf     : 'com.google.firebase:firebase-perf:19.0.6',
       ],
       material   : 'com.google.android.material:material:1.2.0-alpha05'
     ],
