@@ -6,7 +6,7 @@ def versions = [
   lifecycle : '2.2.0',
   paging    : '2.1.2',
   dagger    : '2.27',
-  retrofit  : '2.8.2'
+  retrofit  : '2.9.0'
 ]
 
 ext {
