@@ -39,7 +39,7 @@ ext {
         runtime: "androidx.room:room-runtime:${versions.room}"
       ],
       test            : [
-        junit   : 'androidx.test.ext:junit:1.1.2-beta02',
+        junit   : 'androidx.test.ext:junit:1.1.2-rc01',
         espresso: 'androidx.test.espresso:espresso-core:3.3.0-rc01'
       ],
       viewpager2      : 'androidx.viewpager2:viewpager2:1.0.0'
@@ -60,7 +60,7 @@ ext {
         messaging: 'com.google.firebase:firebase-messaging:20.1.5',
         perf     : 'com.google.firebase:firebase-perf:19.0.7',
       ],
-      material   : 'com.google.android.material:material:1.2.0-alpha06'
+      material   : 'com.google.android.material:material:1.2.0-beta01'
     ],
     jetbrains: [
       coroutines: [
