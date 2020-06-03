@@ -11,6 +11,8 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7
+        run: bundle check
+        run: bundle install
 
       - name: Assert
         run: bundle exec danger --dangerfile="danger/Dangerfile.assert" --danger_id='assertions' --remove-previous-comments
