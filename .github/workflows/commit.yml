@@ -31,3 +31,8 @@ jobs:
         run: ./gradlew lint --stacktrace --scan
       - name: Assemble Release
         run: ./gradlew clean assembleRelease --stacktrace --scan
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: outputs
+          path: app/build/outputs
