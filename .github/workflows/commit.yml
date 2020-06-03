@@ -31,3 +31,18 @@ jobs:
         run: ./gradlew lint --stacktrace --scan
       - name: Assemble Release
         run: ./gradlew clean assembleRelease --stacktrace --scan
+
+  danger:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 2.6
+        uses: actions/setup-ruby@v1
+
+      - name: Assert
+        run: bundle exec danger --dangerfile="danger/Dangerfile.assert" --danger_id='assertions' --remove-previous-comments
+      - name: APK stats
+        run: |
+          script/download_latest_apk latest-release.apk
+          cp app/build/outputs/apk/release/*.apk release.apk
+          bundle exec danger --dangerfile="danger/Dangerfile.compare_apk" --danger_id='compare-apk' --remove-previous-comments
