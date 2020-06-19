@@ -12,13 +12,13 @@ env:
   BUNDLE_PATH: "danger/vendor/bundle"
   BUNDLE_GEMFILE: "danger/Gemfile"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
+  GITHUB_REPOSITORY: ${{ github.repository }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: actions/cache@v2
         with:
           path: |
@@ -68,6 +68,6 @@ jobs:
           name: outputs
       - name: APK stats
         run: |
-          ./github/script/download_latest_apk latest-release.apk
+          .github/script/download_latest_apk latest-release.apk
           cp outputs/apk/release/*.apk release.apk
           bundle exec danger --dangerfile="danger/Dangerfile.compare_apk" --danger_id='compare-apk' --remove-previous-comments
