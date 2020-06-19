@@ -3,13 +3,10 @@
 set -o pipefail
 set -eu
 
-GITHUB_USERNAME="otormaigh"
-GITHUB_REPONAME="blank-android"
 GITHUB_API_TOKEN_USERNAME="otormaigh-bot"
-: "${GITHUB_API_TOKEN:=$DANGER_GITHUB_API_TOKEN}"
 
 latest_gh_release() {
-  curl -#L -H "Authorization: token $GITHUB_API_TOKEN" "https://api.github.com/repos/$GITHUB_USERNAME/$GITHUB_REPONAME/releases/latest"
+  curl -#L -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/repos/$GITHUB_REPOSITORY/releases/latest"
 }
 
 get_asset_url() {
@@ -19,7 +16,7 @@ get_asset_url() {
 download_latest_apk() {
   local asset_url=$(latest_gh_release | get_asset_url)
 
-  curl -#Lo "$1" -u "$GITHUB_API_TOKEN_USERNAME:$GITHUB_API_TOKEN" -H 'Accept: application/octet-stream' "$asset_url"
+  curl -#Lo "$1" -u "$GITHUB_API_TOKEN_USERNAME:$GITHUB_TOKEN" -H 'Accept: application/octet-stream' "$asset_url"
 }
 
 # $1 is a filename

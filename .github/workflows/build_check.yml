@@ -1,0 +1,73 @@
+name: Build + Check
+
+on:
+  push:
+    branches:
+      - master
+      - chore/dependency-update
+  pull_request:
+    types: [opened, synchronize]
+
+env:
+  BUNDLE_PATH: "danger/vendor/bundle"
+  BUNDLE_GEMFILE: "danger/Gemfile"
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_REPOSITORY: ${{ github.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: ${{ runner.os }}-gradle-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Install dependencies
+        run: ./gradlew dependencies --stacktrace --scan
+      - name: Quality checks
+        run: ./gradlew lint --stacktrace --scan
+      - name: Assemble Release
+        if: ${{ github.event_name == 'pull_request' || github.ref == 'master' }}
+        run: ./gradlew clean assembleRelease --stacktrace --scan
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: outputs
+          path: app/build/outputs
+
+  danger:
+    if: ${{ github.event_name == 'pull_request' }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - name: Install Ruby dependencies
+        run: |
+          bundle update --bundler
+          bundle check
+          bundle install
+      - name: Download outputs archive
+        uses: actions/download-artifact@v1
+        with:
+          name: outputs
+      - name: APK stats
+        run: |
+          .github/script/download_latest_apk latest-release.apk
+          cp outputs/apk/release/*.apk release.apk
+          bundle exec danger --dangerfile="danger/Dangerfile.compare_apk" --danger_id='compare-apk' --remove-previous-comments
