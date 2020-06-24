@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - chore/dependency-update
   pull_request:
     types: [opened, synchronize]
 
