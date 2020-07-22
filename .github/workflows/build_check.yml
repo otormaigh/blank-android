@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - chore/dependency-update
+  pull_request:
 
 env:
   BUNDLE_PATH: "danger/vendor/bundle"
