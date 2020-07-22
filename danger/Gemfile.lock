@@ -30,7 +30,7 @@ GEM
     danger-android_lint (0.0.8)
       danger-plugin-api (~> 1.0)
       oga
-    danger-apkstats (0.2.0)
+    danger-apkstats (0.3.0)
       danger-plugin-api (~> 1.0)
     danger-checkstyle_format (0.1.1)
       danger-plugin-api (~> 1.0)
