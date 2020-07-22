@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - master
-      - chore/dependency-update
   pull_request:
-    types: [opened, synchronize]
 
 env:
   BUNDLE_PATH: "danger/vendor/bundle"
@@ -71,3 +69,18 @@ jobs:
           .github/script/download_latest_apk latest-release.apk
           cp outputs/apk/release/*.apk release.apk
           bundle exec danger --dangerfile="danger/Dangerfile.compare_apk" --danger_id='compare-apk' --remove-previous-comments
+
+  automerge:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    needs: danger
+    steps:
+      - name: automerge
+        uses: "pascalgn/automerge-action@v0.8.4"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "pull-request-title"
+          MERGE_FORKS: "false"
+          MERGE_RETRIES: "0"
+          MERGE_RETRY_SLEEP: "0"
