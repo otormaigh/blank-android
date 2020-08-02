@@ -40,40 +40,63 @@ jobs:
         if: ${{ github.event_name == 'pull_request' || github.ref == 'master' }}
         run: ./gradlew clean assembleRelease --stacktrace --scan
 
-      - uses: actions/upload-artifact@v2
+      - name: Archive APKs
+        run: |
+          .github/script/download_latest_apk latest-release.apk
+          mv app/build/outputs/apk/release/*.apk release-${{ github.sha }}.apk
+      - name: Upload archived APKs
+        uses: actions/upload-artifact@v2
         with:
-          name: outputs
-          path: app/build/outputs
+          name: apks
+          path: '*.apk'
 
-  danger:
+  apk-stats:
     if: ${{ github.event_name == 'pull_request' }}
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+      - uses: actions/checkout@v2
         with:
-          ruby-version: 2.7
-      - name: Install Ruby dependencies
-        run: |
-          bundle update --bundler
-          bundle check
-          bundle install
-      - name: Download outputs archive
-        uses: actions/download-artifact@v1
+          repository: jakewharton/diffuse
+      - uses: actions/cache@v2
         with:
-          name: outputs
-      - name: APK stats
-        run: |
-          .github/script/download_latest_apk latest-release.apk
-          cp outputs/apk/release/*.apk release.apk
-          bundle exec danger --dangerfile="danger/Dangerfile.compare_apk" --danger_id='compare-apk' --remove-previous-comments
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle', '**/gradle.properties') }}
+          restore-keys: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle', '**/gradle.properties') }}
+
+      - name: Install JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Build diffuse
+        run: ./gradlew assemble
+
+      - name: Download apks
+        uses: actions/download-artifact@v2
+        with:
+          name: apks
+
+      - name: Run diffuse
+        run: ./diffuse/build/diffuse diff latest-release.apk release-${{ github.sha }}.apk > apk-diff-${{ github.sha }}.txt
+      - name: Prepare PR comment
+        run: printf "\`\`\`\n" > pr-comment.txt && sed '/====   DEX   ====/q' apk-diff-${{ github.sha }}.txt | tac | sed "1,2d" | tac | sed -e :a -e '/^\n*$/{$d;N;};/\n$/ba' >> pr-comment.txt && echo "\`\`\`"  >> pr-comment.txt
+      - name: Comment PR
+        uses: machine-learning-apps/pr-comment@1.0.0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          path: pr-comment.txt
+      - name: Upload full diff
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk-diffs
+          path: apk-diff-${{ github.sha }}.txt
 
   automerge:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
-    needs: danger
+    needs: [build, apk-stats]
     steps:
       - name: automerge
         uses: "pascalgn/automerge-action@v0.8.4"
