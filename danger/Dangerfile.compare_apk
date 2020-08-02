@@ -1,5 +1,0 @@
-require 'pry'
-
-# APK Stats
-apkstats.apk_filepath='release.apk'
-apkstats.compare_with('latest-release.apk', do_report: true)
