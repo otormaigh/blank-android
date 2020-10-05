@@ -74,7 +74,7 @@ ext {
     ],
     junit    : 'junit:junit:4.13',
     square   : [
-      moshi   : 'com.squareup.moshi:moshi:1.9.3',
+      moshi   : 'com.squareup.moshi:moshi:1.11.0',
       okhttp  : [
         core               : "com.squareup.okhttp3:okhttp:${versions.okhttp3}",
         logging_interceptor: "com.squareup.okhttp3:logging-interceptor:${versions.okhttp3}"
