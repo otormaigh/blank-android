@@ -44,7 +44,7 @@ ext {
       ],
       viewpager2      : 'androidx.viewpager2:viewpager2:1.0.0'
     ],
-    coil     : 'io.coil-kt:coil:0.11.0',
+    coil     : 'io.coil-kt:coil:1.1.0',
     google   : [
       dagger     : [
         core             : "com.google.dagger:dagger:${versions.dagger}",
