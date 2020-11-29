@@ -7,8 +7,6 @@ on:
   pull_request:
 
 env:
-  BUNDLE_PATH: "danger/vendor/bundle"
-  BUNDLE_GEMFILE: "danger/Gemfile"
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GITHUB_REPOSITORY: ${{ github.repository }}
 
