@@ -92,18 +92,3 @@ jobs:
         with:
           name: apk-diffs
           path: apk-diff-${{ github.sha }}.txt
-
-  automerge:
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
-    needs: [build, apk-stats]
-    steps:
-      - name: automerge
-        uses: pascalgn/automerge-action@v0.12.0
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_METHOD: "squash"
-          MERGE_COMMIT_MESSAGE: "pull-request-title"
-          MERGE_FORKS: "false"
-          MERGE_RETRIES: "0"
-          MERGE_RETRY_SLEEP: "0"
