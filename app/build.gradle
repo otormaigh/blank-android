@@ -4,13 +4,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-  compileSdkVersion 29
-  buildToolsVersion "29.0.2"
+  compileSdkVersion 30
 
   defaultConfig {
     applicationId "ie.otormaigh.blank"
     minSdkVersion 23
-    targetSdkVersion 29
+    targetSdkVersion 30
     versionCode 15
     versionName "1.$versionCode"
     archivesBaseName = "blank-$versionName"
@@ -18,12 +17,12 @@ android {
   }
 
   compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
   }
 
   kotlinOptions {
-    jvmTarget = JavaVersion.VERSION_1_8
+    jvmTarget = JavaVersion.VERSION_11
   }
 
   signingConfigs {
@@ -55,13 +54,6 @@ android {
   }
 
   viewBinding.enabled = true
-}
-
-kapt {
-  javacOptions {
-    option("-source", "8")
-    option("-target", "8")
-  }
 }
 
 dependencies {
