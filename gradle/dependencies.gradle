@@ -4,7 +4,7 @@ def versions = [
   okhttp3   : '4.9.0',
   room      : '2.2.5',
   lifecycle : '2.3.0-beta01',
-  paging    : '2.1.2',
+  paging    : '3.0.0-alpha10',
   dagger    : '2.30.1',
   retrofit  : '2.9.0'
 ]
