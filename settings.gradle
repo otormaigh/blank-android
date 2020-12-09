@@ -9,5 +9,5 @@ gradleEnterprise {
   }
 }
 
-rootProject.name = 'Blank'
+rootProject.name = 'blank-android'
 include ':app'
