@@ -1,9 +1,9 @@
 def versions = [
-  kotlin    : '1.4.20',
+  kotlin    : '1.4.21',
   coroutines: '1.4.2-native-mt',
   okhttp3   : '4.9.0',
   room      : '2.2.5',
-  lifecycle : '2.2.0',
+  lifecycle : '2.3.0-beta01',
   paging    : '3.0.0-alpha10',
   dagger    : '2.30.1',
   retrofit  : '2.9.0'
@@ -33,7 +33,7 @@ ext {
         runtime    : "androidx.paging:paging-runtime:${versions.paging}",
         runtime_ktx: "androidx.paging:paging-runtime-ktx:${versions.paging}",
       ],
-      recyclerview    : 'androidx.recyclerview:recyclerview:1.2.0-alpha06',
+      recyclerview    : 'androidx.recyclerview:recyclerview:1.2.0-beta01',
       room            : [
         ktx    : "androidx.room:room-ktx:${versions.room}",
         runtime: "androidx.room:room-runtime:${versions.room}"
