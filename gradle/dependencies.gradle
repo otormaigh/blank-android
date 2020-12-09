@@ -1,6 +1,6 @@
 def versions = [
   kotlin    : '1.4.21',
-  coroutines: '1.4.2-native-mt',
+  coroutines: '1.4.2',
   okhttp3   : '4.10.0-RC1',
   room      : '2.3.0-alpha03',
   lifecycle : '2.3.0-beta01',
