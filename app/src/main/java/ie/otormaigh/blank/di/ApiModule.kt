@@ -27,7 +27,7 @@ object ApiModule {
   @JvmStatic
   fun provideOkHttp(): OkHttpClient =
     OkHttpClient.Builder()
-      .protocols(listOf(Protocol.HTTP_1_1))
+      .protocols(listOf(Protocol.HTTP_2))
       .addNetworkInterceptor(HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.NONE
         if (BuildConfig.DEBUG) level = HttpLoggingInterceptor.Level.BODY

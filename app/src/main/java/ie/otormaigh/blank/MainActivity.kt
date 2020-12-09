@@ -1,7 +1,6 @@
 package ie.otormaigh.blank
 
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import dagger.android.AndroidInjection
 import ie.otormaigh.blank.api.ApiService
@@ -14,14 +13,15 @@ class MainActivity : AppCompatActivity() {
   @Inject
   lateinit var api: ApiService
 
-  private lateinit var binding: ActivityMainBinding
+  private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     AndroidInjection.inject(this)
     super.onCreate(savedInstanceState)
-    binding = ActivityMainBinding.inflate(layoutInflater)
     setContentView(binding.root)
 
-    GlobalScope.launch { api.getUser() }
+    binding.tvHelloWorld.setOnClickListener {
+      GlobalScope.launch { api.getUser() }
+    }
   }
 }
