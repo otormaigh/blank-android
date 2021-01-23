@@ -1,10 +1,10 @@
 def versions = [
-  kotlin    : '1.4.21',
-  coroutines: '1.4.2',
+  kotlin    : '1.4.21-2',
+  coroutines: '1.4.2-native-mt',
   okhttp3   : '4.10.0-RC1',
-  room      : '2.3.0-alpha03',
-  lifecycle : '2.3.0-beta01',
-  paging    : '3.0.0-alpha10',
+  room      : '2.3.0-alpha04',
+  lifecycle : '2.3.0-rc01',
+  paging    : '3.0.0-alpha12',
   dagger    : '2.30.1',
   retrofit  : '2.9.0'
 ]
@@ -16,8 +16,8 @@ ext {
     ],
     androidx : [
       appcompat       : 'androidx.appcompat:appcompat:1.3.0-beta01',
-      core_ktx        : 'androidx.core:core-ktx:1.5.0-alpha05',
-      constraintlayout: 'androidx.constraintlayout:constraintlayout:2.1.0-alpha1',
+      core_ktx        : 'androidx.core:core-ktx:1.5.0-beta01',
+      constraintlayout: 'androidx.constraintlayout:constraintlayout:2.1.0-alpha2',
       lifecycle       : [
         livedata : [
           'core_ktx': "androidx.lifecycle:lifecycle-livedata-core-ktx:${versions.lifecycle}",
@@ -39,12 +39,12 @@ ext {
         runtime: "androidx.room:room-runtime:${versions.room}"
       ],
       test            : [
-        junit   : 'androidx.test.ext:junit:1.1.3-alpha02',
-        espresso: 'androidx.test.espresso:espresso-core:3.4.0-alpha02'
+        junit   : 'androidx.test.ext:junit:1.1.3-alpha03',
+        espresso: 'androidx.test.espresso:espresso-core:3.4.0-alpha03'
       ],
       viewpager2      : 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
     ],
-    coil     : 'io.coil-kt:coil:1.1.0',
+    coil     : 'io.coil-kt:coil:1.1.1',
     google   : [
       dagger     : [
         core             : "com.google.dagger:dagger:${versions.dagger}",
@@ -57,7 +57,7 @@ ext {
       firebase   : [
         analytics: 'com.google.firebase:firebase-analytics:18.0.0',
         core     : 'com.google.firebase:firebase-core:18.0.0',
-        messaging: 'com.google.firebase:firebase-messaging:21.0.0',
+        messaging: 'com.google.firebase:firebase-messaging:21.0.1',
         perf     : 'com.google.firebase:firebase-perf:19.0.10',
       ],
       material   : 'com.google.android.material:material:1.3.0-alpha04'
