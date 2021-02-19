@@ -12,7 +12,7 @@ def versions = [
 ext {
   libraries = [
     android  : [
-      plugin: 'com.android.tools.build:gradle:7.0.0-alpha04'
+      plugin: 'com.android.tools.build:gradle:7.0.0-alpha07'
     ],
     androidx : [
       appcompat       : 'androidx.appcompat:appcompat:1.3.0-beta01',
