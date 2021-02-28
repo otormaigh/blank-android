@@ -27,3 +27,4 @@ jobs:
         with:
           base-branch: chore/dependency-update
           target-branch: chore/dependency-update
+          set-distribution-checksum: false
