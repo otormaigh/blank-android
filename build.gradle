@@ -26,8 +26,3 @@ allprojects {
 task clean(type: Delete) {
   delete rootProject.buildDir
 }
-
-wrapper {
-  gradleVersion = "6.8.2"
-  distributionType = "bin"
-}
