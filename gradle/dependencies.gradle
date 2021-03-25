@@ -2,7 +2,7 @@ def versions = [
   kotlin    : '1.4.31',
   coroutines: '1.4.2-native-mt',
   okhttp3   : '5.0.0-alpha.2',
-  room      : '2.3.0-beta02',
+  room      : '2.3.0-rc01',
   lifecycle : '2.3.0',
   paging    : '3.0.0-beta01',
   dagger    : '2.33',
