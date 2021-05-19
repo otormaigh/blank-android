@@ -3,7 +3,7 @@ buildscript {
 
   repositories {
     google()
-    jcenter()
+    mavenCentral()
 
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
   }
@@ -17,7 +17,7 @@ buildscript {
 allprojects {
   repositories {
     google()
-    jcenter()
+    mavenCentral()
 
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
   }
@@ -28,6 +28,6 @@ task clean(type: Delete) {
 }
 
 wrapper {
-  gradleVersion = "6.8.1"
-  distributionType = "bin"
+  gradleVersion = '7.0.2'
+  distributionType = 'bin'
 }
