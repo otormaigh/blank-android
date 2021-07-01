@@ -15,7 +15,7 @@ ext {
       plugin: 'com.android.tools.build:gradle:7.1.0-alpha01'
     ],
     androidx : [
-      appcompat       : 'androidx.appcompat:appcompat:1.4.0-alpha01',
+      appcompat       : 'androidx.appcompat:appcompat:1.4.0-alpha03',
       core_ktx        : 'androidx.core:core-ktx:1.6.0-beta01',
       constraintlayout: 'androidx.constraintlayout:constraintlayout:2.1.0-beta02',
       lifecycle       : [
