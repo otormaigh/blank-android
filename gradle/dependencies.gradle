@@ -17,7 +17,7 @@ ext {
     androidx : [
       appcompat       : 'androidx.appcompat:appcompat:1.4.0-alpha01',
       core_ktx        : 'androidx.core:core-ktx:1.6.0-beta01',
-      constraintlayout: 'androidx.constraintlayout:constraintlayout:2.1.0-beta02',
+      constraintlayout: 'androidx.constraintlayout:constraintlayout:2.1.2',
       lifecycle       : [
         livedata : [
           'core_ktx': "androidx.lifecycle:lifecycle-livedata-core-ktx:${versions.lifecycle}",
